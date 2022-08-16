@@ -1,10 +1,21 @@
 import { shopService } from '../../services/shop.service.js'
 
-export function loadProducts() {
+export function loadBrands() {
     return async dispatch => {
         try {
-            const products = await shopService.query()
-            dispatch({ type: 'SET_PRODUCTS', products })
+            const brands = await shopService.query()
+            dispatch({ type: 'SET_BRANDS', brands })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+}
+
+export function loadShop() {
+    return async dispatch => {
+        try {
+            const shop = shopService.getShop()
+            dispatch({ type: 'SET_SHOP', shop })
         } catch (err) {
             console.log(err)
         }

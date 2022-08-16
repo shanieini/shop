@@ -1,21 +1,28 @@
 import { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
 import { shopService } from "../services/shop.service"
+import { BrandList } from "../cmps/brand-list"
+import { loadBrands } from "../store/shop/shop.action"
 
 export const Shop = () => {
 
-    const loadShop = async () => {
-        const shop = await shopService.query()
-        console.log('shop: ', shop);
-    }
+    const dispatch = useDispatch()
+
+    let { brands } = useSelector((storeState) => storeState.shopModule)
+
 
     useEffect(() => {
-        loadShop()
+        onLoadBrands()
     }, [])
+
+    const onLoadBrands = async () => {
+        await dispatch(loadBrands())
+    }
 
 
     return (
         <div>
-
+            <BrandList brands={brands} />
         </div>
     )
 }

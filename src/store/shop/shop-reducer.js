@@ -1,13 +1,18 @@
 const initialState = {
-    products: [],
+    shop: [],
+    brands: [],
+    currBrand: {}
+    // filterBy: {}
 }
 
 export function shopReducer(state = initialState, action) {
     var products
 
     switch (action.type) {
-        case 'SET_PRODUCTS':
-            return { ...state, products: action.products }
+        case 'SET_BRANDS':
+            return { ...state, brands: action.brands }
+        case 'SET_SHOP':
+            return { ...state, shop: action.shop }
         case 'REMOVE_PRODUCT':
             products = state.products.filter(product => product._id !== action.productId)
             return { ...state, products }

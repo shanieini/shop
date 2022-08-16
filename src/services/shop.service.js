@@ -14,18 +14,24 @@ export const shopService = {
     getById,
     save,
     remove,
+    getShop
 }
+
+const gShop = require('../data/products.json')
 
 async function query(filterBy) {
     try {
         // const res = await axios.get(BASE_URL, { params: { filterBy } })
         // return res.data
-        const store = require('../data/products.json')
-        console.log(store)
-        return store
+        console.log(gShop)
+        return gShop.Stores
     } catch (err) {
         console.log(err)
     }
+}
+
+function getShop() {
+    return gShop
 }
 
 async function getById(productId) {
