@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { loadShop } from "../store/shop/shop.action"
 import { Filter } from "./filter"
+
 export const Header = () => {
     const dispatch = useDispatch()
     let { shop } = useSelector((storeState) => storeState.shopModule)
@@ -13,7 +14,6 @@ export const Header = () => {
     const onLoadShop = async () => {
         await dispatch(loadShop())
     }
-    console.log(shop)
     return (
         <header>
             <div className="header-top-container">
