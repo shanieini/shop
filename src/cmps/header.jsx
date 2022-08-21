@@ -15,11 +15,11 @@ export const Header = () => {
         await dispatch(loadShop())
     }
     return (
-        <header>
-            <div className="header-top-container">
+        <header className="flex">
+            <div className="header-top-container flex">
                 <div className="logo">logo</div>
             </div>
-            <div className="header-bottom-container">
+            <div className="header-bottom-container flex">
                 {shop && shop.filterTypes?.map((filter, idx) => {
                     return <Filter key={idx} name={filter.name} filter={shop[filter.field]} />
                 })}

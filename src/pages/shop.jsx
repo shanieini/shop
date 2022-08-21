@@ -21,7 +21,7 @@ export const Shop = () => {
 
 
     return (
-        <div>
+        <div className="shop-container">
             <BrandList brands={brands} />
         </div>
     )

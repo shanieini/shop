@@ -7,10 +7,12 @@ import { Header } from './cmps/header';
 export const App = () => {
   return (
     <section className="App">
-      <Header />
-      <Routes>
-        {routes.map(route => <Route key={route.path} exact element={<route.component />} path={route.path} />)}
-      </Routes>
+      <div className="app-wrapper">
+        <Header />
+        <Routes>
+          {routes.map(route => <Route key={route.path} exact element={<route.component />} path={route.path} />)}
+        </Routes>
+      </div>
     </section>
   );
 }
