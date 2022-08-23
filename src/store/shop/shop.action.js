@@ -1,9 +1,9 @@
 import { shopService } from '../../services/shop.service.js'
 
-export function loadBrands() {
+export function loadBrands(filterBy) {
     return async dispatch => {
         try {
-            const brands = await shopService.query()
+            const brands = await shopService.query(filterBy)
             dispatch({ type: 'SET_BRANDS', brands })
         } catch (err) {
             console.log(err)
@@ -45,3 +45,12 @@ export function saveProduct(product) {
     }
 }
 
+export function setFilter(filterBy) {
+    return (dispatch) => {
+        return dispatch({
+            type: 'SET_FILTERBY',
+            filterBy
+        })
+
+    }
+}

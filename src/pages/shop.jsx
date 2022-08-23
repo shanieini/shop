@@ -8,17 +8,16 @@ export const Shop = () => {
 
     const dispatch = useDispatch()
 
-    let { brands } = useSelector((storeState) => storeState.shopModule)
+    let { brands, filterBy } = useSelector((storeState) => storeState.shopModule)
 
 
     useEffect(() => {
         onLoadBrands()
-    }, [])
+    }, [filterBy])
 
     const onLoadBrands = async () => {
-        await dispatch(loadBrands())
+        await dispatch(loadBrands(filterBy))
     }
-
 
     return (
         <div className="shop-container">

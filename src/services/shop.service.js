@@ -23,7 +23,25 @@ async function query(filterBy) {
     try {
         // const res = await axios.get(BASE_URL, { params: { filterBy } })
         // return res.data
-        console.log(gShop)
+        if (filterBy.select) {
+            switch (filterBy.select) {
+                case 'Gap':
+                    return
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        if (filterBy.budget) {
+
+        }
+
+        if (filterBy.name) {
+
+        }
+        console.log('filterBy', filterBy);
         return gShop.Stores
     } catch (err) {
         console.log(err)

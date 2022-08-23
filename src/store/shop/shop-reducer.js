@@ -1,11 +1,17 @@
 const initialState = {
     shop: [],
     brands: [],
-    currBrand: {}
-    // filterBy: {}
+    currBrand: {},
+    filterBy: {
+        budget: '',
+        age: '',
+        gender: '',
+        name: ''
+    }
 }
 
 export function shopReducer(state = initialState, action) {
+
     var products
 
     switch (action.type) {
@@ -23,6 +29,8 @@ export function shopReducer(state = initialState, action) {
             products = state.products.map(currProduct =>
                 (currProduct._id === action.product._id) ? action.product : currProduct)
             return { ...state, products }
+        case 'SET_FILTERBY':
+            return { ...state, filterBy: action.filterBy }
         default:
             return state
     }
